@@ -1,0 +1,24 @@
+
+#开发配置
+server:
+  port: 8080
+
+spring:
+  profiles: dev
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/zeroone
+    username: zeroone
+    password: zeroone
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    driver-class-name: com.mysql.jdbc.Driver
+
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+
+#showSql
+logging:
+  level:
+    com:
+      example:
+        mapper : debug
