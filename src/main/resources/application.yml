@@ -2,11 +2,24 @@
 spring:
   profiles:
     active: dev
+#  thymeleaf:
+#    #清除缓存，实现热部署。也就是修改了html后不用重启(提前引入thymeleaf依赖)(PS: 修改完html后一定要ctrl+f9重新build一下。再回到浏览器刷新)
+#    cache: false
+#    #回避HTML进行严格的检查的配置(提前引入nekohtml依赖)
+#    mode: LEGACYHTML5
+  devtools:
+    restart:
+      #热部署生效
+      enabled: true
+      #设置重启的目录
+      additional-paths: src/main/java
+      # =classpath目录下的templates文件夹内容修改不重启
+      exclude: templates/**
 
 
 #公共配置与profiles选择无关 mapperLocations指的路径是src/main/resources
 mybatis:
-  #扫描实力类的所在包
+  #扫描实例类的所在包
   type-aliases-package: com.example.demo.entity
   mapper-locations: classpath:mapping/*Mapper.xml
 
