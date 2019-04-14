@@ -24,6 +24,7 @@ spring.devtools.restart.exclude: WEB-INF/**
 **但是,为什么配置了还是没有用呢 ?!**
 
 这是因为idea默认是没有自动编译的,我们这里需要添加修改配置.打开设置
+
 3. 
 
   (1) File-Settings-Compiler-Build Project automatically
