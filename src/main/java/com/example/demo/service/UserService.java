@@ -1,16 +1,10 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.User;
-import com.example.demo.mapper.UserMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 
 public interface UserService {
-    
+
     /**
      * @author He
      * @description 根据ID查询用户信息

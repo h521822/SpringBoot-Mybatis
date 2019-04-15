@@ -109,7 +109,7 @@
         </dependency>
     </dependencies>
 
-
+    <!--Spring Boot Maven插件-->
     <build>
         <plugins>
             <plugin>
