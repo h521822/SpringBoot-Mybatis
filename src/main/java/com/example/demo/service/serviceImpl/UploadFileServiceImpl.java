@@ -1,6 +1,8 @@
 package com.example.demo.service.serviceImpl;
 
+import com.example.demo.config.FrameProperties;
 import com.example.demo.service.UploadFileService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,6 +23,9 @@ import java.util.List;
 @Transactional(rollbackFor = Exception.class)
 public class UploadFileServiceImpl implements UploadFileService {
 
+    @Autowired
+    private FrameProperties frameProperties;
+
     /**
      * 文件上传
      * @param file 上传文件
@@ -35,7 +40,9 @@ public class UploadFileServiceImpl implements UploadFileService {
             String saveFileName = file.getOriginalFilename();
             // 保存路径
             // File saveFile = new File(request.getSession().getServletContext().getRealPath("/upload/") + saveFileName);
-            File saveFile = new File("C:/Users/He/Desktop/upload/" + saveFileName);
+            // File saveFile = new File("C:/Users/He/Desktop/upload/" + saveFileName);
+            // 从配置文件中获取保存路径
+            File saveFile = new File(frameProperties.getFile().getSaveFilePath() + saveFileName);
             // 判断父路径是否存在
             if (!saveFile.getParentFile().exists()) {
                 // 创建文件夹
