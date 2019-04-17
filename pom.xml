@@ -18,6 +18,8 @@
         <java.version>1.8</java.version>
         <lombok.version>1.16.20</lombok.version>
         <commons-lang3.version>3.7</commons-lang3.version>
+        <shiro.version>1.3.2</shiro.version>
+        <mybatis-plus.version>2.3</mybatis-plus.version>
     </properties>
 
     <dependencies>
@@ -106,6 +108,20 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
+        </dependency>
+
+        <!--密码加密-->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+
+        <!--MyBatis-plus （参考资料：https://www.cnblogs.com/fingerboy/p/6657118.html）-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus</artifactId>
+            <version>${mybatis-plus.version}</version>
         </dependency>
     </dependencies>
 
