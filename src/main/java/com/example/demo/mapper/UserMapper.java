@@ -1,7 +1,7 @@
 package com.example.demo.mapper;
 
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.example.demo.entity.User;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
  **/
 
 @Repository
-public interface UserMapper {
+public interface UserMapper extends BaseMapper<User> {
 
     User Sel(int id);
 

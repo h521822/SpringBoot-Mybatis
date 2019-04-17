@@ -27,6 +27,11 @@ public class UserController {
         return userService.Sel(id);
     }
 
+    @RequestMapping("getUserTest/{id}")
+    public User getUserTest(@PathVariable int id){
+        return userService.getUserTestById(id);
+    }
+
     @RequestMapping("getUserSize")
     public int getUserSize(){
         return userService.getUserSize();

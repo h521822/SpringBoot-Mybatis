@@ -33,4 +33,6 @@ public interface UserService {
     // public int getUserSize() {
     //     return userMapper.getUserSize();
     // }
+
+    User getUserTestById(int id);
 }

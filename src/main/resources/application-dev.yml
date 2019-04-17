@@ -6,12 +6,13 @@ spring:
   profiles: dev
 
   datasource:
+    #调整时差
     url: jdbc:mysql://localhost:3306/zeroone?serverTimezone=GMT%2B8
     username: zeroone
     password: zeroone
-#    password: hj123456
+    #password: hj123456
     driver-class-name: com.mysql.cj.jdbc.Driver
-#    driver-class-name: com.mysql.jdbc.Driver
+    #driver-class-name: com.mysql.jdbc.Driver
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
 

@@ -5,7 +5,7 @@
     <resultMap id="BaseResultMap" type="com.example.demo.entity.User">
         <result column="id" jdbcType="INTEGER" property="id" />
         <result column="userName" jdbcType="VARCHAR" property="userName" />
-        <result column="passWord" jdbcType="VARCHAR" property="passWord" />
+        <result column="passWord" jdbcType="VARCHAR" property="password" />
         <result column="realName" jdbcType="VARCHAR" property="realName" />
     </resultMap>
 
@@ -15,7 +15,7 @@
         SELECT
         `user`.id,
         `user`.userName,
-        `user`.`passWord`,
+        `user`.`password`,
         `user`.realName
         FROM
         `user`
