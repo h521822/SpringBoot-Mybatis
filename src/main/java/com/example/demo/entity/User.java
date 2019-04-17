@@ -1,57 +1,26 @@
 package com.example.demo.entity;
 
+import com.baomidou.mybatisplus.annotations.TableName;
+import lombok.Data;
+
+import java.util.Date;
+
 /**
  * @ClassName User
  * @Author User
  * @Date 2019/2/23 19:48
  * @Version 1.0
  **/
+@Data
 public class User {
     private Integer id;
     private String userName;
-    private String passWord;
+    private String password;
     private String realName;
 
-    public Integer getId() {
-        return id;
-    }
+    private Date createDate;
+    private String salt;
+    private String email;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassWord() {
-        return passWord;
-    }
-
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
-    }
-
-    public String getRealName() {
-        return realName;
-    }
-
-    public void setRealName(String realName) {
-        this.realName = realName;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", passWord='" + passWord + '\'' +
-                ", realName='" + realName + '\'' +
-                '}';
-    }
 
 }
