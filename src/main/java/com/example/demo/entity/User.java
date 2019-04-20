@@ -1,13 +1,8 @@
 package com.example.demo.entity;
 
 import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
-import com.baomidou.mybatisplus.enums.IdType;
 import lombok.Data;
-
-import java.io.Serializable;
-import java.util.Date;
 
 /**
  * @ClassName User
@@ -18,27 +13,47 @@ import java.util.Date;
 @Data
 //标记表名(此注解为必须，下面的字段注解可选)
 @TableName("user")
-public class User implements Serializable {
-    //标记数据表主键
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
-    //标记数据表中的column名
-    @TableField("userName")
-    private String userName;
-    @TableField("password")
-    private String password;
-    @TableField("realName")
-    private String realName;
+public class User extends BaseEntity {
 
-    // @TableField("CREATE_DATE")
-    @TableField(exist = false)
-    private Date createDate;
-    // @TableField("SALT")
-    @TableField(exist = false)
+    /**
+     * 账号
+     **/
+    //标记数据表中的column名
+    @TableField("ACCOUNT")
+    private String account;
+
+    /**
+     * 用户名
+     **/
+    @TableField("USER_NAME")
+    private String userName;
+
+    /**
+     * 密码
+     **/
+    @TableField("PASSWORD")
+    private String password;
+
+    /**
+     * 盐
+     **/
+    @TableField("SALT")
+    // @TableField(exist = false)
     private String salt;
+
+    /**
+     * 邮箱
+     **/
     //标记数据表中不存在的字段
-    @TableField(exist = false)
+    // @TableField(exist = false)
+    @TableField("EMAIL")
     private String email;
+
+    public static String USER_NAME = "USER_NAME";
+
+    public static String ACCOUNT = "ACCOUNT";
+
+
 
 
 }

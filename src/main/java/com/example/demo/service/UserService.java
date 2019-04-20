@@ -35,4 +35,22 @@ public interface UserService {
     // }
 
     User getUserTestById(int id);
+
+    /**
+     * @author He
+     * @description 注册测试
+     * @date 2019/4/20 19:57
+     * @param user
+     * @return java.lang.Boolean
+     **/
+    Boolean register(User user);
+
+    /**
+     * @author He
+     * @description 登录测试
+     * @date 2019/4/20 22:15
+     * @param user
+     * @return java.lang.String
+     **/
+    String login(User user);
 }

@@ -22,17 +22,17 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("getUser/{id}")
+    @RequestMapping("/getUser/{id}")
     public User GetUser(@PathVariable int id){
         return userService.Sel(id);
     }
 
-    @RequestMapping("getUserTest/{id}")
+    @RequestMapping("/getUserTest/{id}")
     public User getUserTest(@PathVariable int id){
         return userService.getUserTestById(id);
     }
 
-    @RequestMapping("getUserSize")
+    @RequestMapping("/getUserSize")
     public int getUserSize(){
         return userService.getUserSize();
     }

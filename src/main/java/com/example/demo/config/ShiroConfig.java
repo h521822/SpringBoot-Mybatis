@@ -58,7 +58,7 @@ public class ShiroConfig {
 	 * @param length 长度
 	 * @return 随机密码盐
 	 */
-	private static String generateSalt(int length) {
+	public static String generateSalt(int length) {
 		//随机字符串的随机字符库
 		String keyString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 		StringBuilder sb = new StringBuilder();

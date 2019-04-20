@@ -1,12 +1,18 @@
 package com.example.demo.service.serviceImpl;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.example.demo.config.ShiroConfig;
 import com.example.demo.entity.User;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.UserService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Date;
 
 
 @Service
@@ -17,7 +23,8 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
     @Autowired
-    UserMapper userMapper;
+    private  UserMapper userMapper;
+
 
     @Override
     public User Sel(int id){
@@ -32,5 +39,45 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public User getUserTestById(int id) {
         return this.selectById(id);
+    }
+
+    /**
+     * @author He
+     * @description 注册测试
+     * @date 2019/4/20 19:49
+     * @param user
+     * @return java.lang.Boolean
+     **/
+    @Override
+    public Boolean register(User user) {
+        // 注册时间
+        user.setCreateDate(new Date());
+        String salt = ShiroConfig.generateSalt(20);
+        user.setPassword(ShiroConfig.encryptPassword("MD5", user.getPassword(), salt));
+        // 保存盐，以用来登录时验证密码是否正确
+        user.setSalt(salt);
+        return this.insert(user);
+    }
+
+    /**
+     * @author He
+     * @description 登录测试
+     * @date 2019/4/20 22:15
+     * @param user
+     * @return java.lang.String
+     **/
+    @Override
+    public String login(User user) {
+        Wrapper<User> userWrapper = new EntityWrapper();
+        userWrapper.eq(User.ACCOUNT, user.getAccount());
+        User ent = this.selectOne(userWrapper);
+        // ServiceUtil.checkIsEntity(user);
+        if (ent == null) {
+            return "用户不存在！";
+        }
+        if (!StringUtils.equals(ent.getPassword(), ShiroConfig.encryptPassword("MD5", user.getPassword(), ent.getSalt()))) {
+            return "密码错误！";
+        }
+        return "登陆成功";
     }
 }
